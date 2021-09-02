@@ -26,7 +26,6 @@ export default {
       calciResult: "",
       operator: null,
       prevValue: "",
-      nextValue: "",
       elements: [
         "C",
         "*",
@@ -66,13 +65,11 @@ export default {
         this.operator = op;
         this.prevValue = this.calciResult;
         this.calciResult = "";
-        // this.nextValue = this.calciResult;
-        // this.calciResult = this.prevValue + this.operator + this.nextValue;
-        // this.calciResult = "";
+        this.calciResult = this.prevValue + this.operator + this.calciResult;
       }
       if (op === "=") {
         this.calciResult = eval(
-          this.prevValue + this.operator + this.calciResult
+          this.calciResult
         );
         // eval keyword to evaluate operations passed as strings
         this.prevValue = "";
